@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="oI3-S3-M1V">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="yhF-OG-OnF">
+            <objects>
+                <viewController id="oI3-S3-M1V" customClass="ViewController" customModule="SwiftPuzzleGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m8p-Tz-PcT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="AWi-u8-kQ9" customClass="GameView" customModule="SwiftPuzzleGame" customModuleProvider="target">
+                                <rect key="frame" x="20" y="61" width="280" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3wa-hK-Q4O" userLabel="SourceBtn">
+                                <rect key="frame" x="130" y="428" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="查看原图"/>
+                                <connections>
+                                    <segue destination="yRD-wP-Gha" kind="modal" modalTransitionStyle="partialCurl" id="Zyz-24-bWb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QMU-Xr-obA" userLabel="BreakBtn">
+                                <rect key="frame" x="245" y="428" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="打乱"/>
+                                <connections>
+                                    <action selector="btnBreakHandler:" destination="oI3-S3-M1V" eventType="touchUpInside" id="gbS-ZS-uTW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="V5K-fn-10M" userLabel="ChangeBtn">
+                                <rect key="frame" x="43" y="428" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="换图"/>
+                                <connections>
+                                    <action selector="btnChangeImageHandler:" destination="oI3-S3-M1V" eventType="touchUpInside" id="pAS-D2-G32"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="breakBtn" destination="QMU-Xr-obA" id="7Y7-P7-57s"/>
+                        <outlet property="changeBtn" destination="V5K-fn-10M" id="F20-C8-ibZ"/>
+                        <outlet property="gameView" destination="AWi-u8-kQ9" id="LgL-pY-r8T"/>
+                        <outlet property="sourceBtn" destination="3wa-hK-Q4O" id="JnS-yp-FaW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fyv-Qt-BzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-323" y="11"/>
+        </scene>
+        <!--Source ImageVC-->
+        <scene sceneID="aec-Hr-aWN">
+            <objects>
+                <viewController id="yRD-wP-Gha" customClass="SourceImageVC" customModule="SwiftPuzzleGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lzr-q2-RP5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mjB-rP-xaG" userLabel="SourceImage">
+                                <rect key="frame" x="40" y="92" width="240" height="287"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ChK-OT-2aF" userLabel="BackBtn">
+                                <rect key="frame" x="145" y="453" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="返回"/>
+                                <connections>
+                                    <action selector="backBtnClicked:" destination="yRD-wP-Gha" eventType="touchUpInside" id="tXf-dK-N0p"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backBtn" destination="ChK-OT-2aF" id="OME-AX-ezk"/>
+                        <outlet property="sourceImage" destination="mjB-rP-xaG" id="ukW-6J-G3S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kft-ID-FIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136" y="11"/>
+        </scene>
+    </scenes>
+</document>
